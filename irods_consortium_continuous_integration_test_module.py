@@ -34,7 +34,7 @@ def init():
     proj_file = os.path.join(DOCKER_COMPOSE_PROJECT_DIR, 'docker-compose.yml')
     proj = yaml.load(open(proj_file,'r'), Loader = yaml.Loader)
     proj['services']['maven']['command'] = '''sh -c "cd /usr/src/jargon ; mvn -s settings.xml install"'''
-    proj = yaml.dump(proj, open(proj_file+'.new','w'))
+    proj = yaml.dump(proj, open(proj_file,'w'))
     
     return DOCKER_COMPOSE_PROJECT_DIR
 
